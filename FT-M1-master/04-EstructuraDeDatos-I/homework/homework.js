@@ -15,9 +15,18 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if(n===1){
+    return 1;
+  } else {
+  return n*nFactorial(n-1)};
 }
 
 function nFibonacci(n) {
+  if (n===0){
+    return 0
+  } else if (n<2){
+   return 1} else {
+  return nFibonacci(n-2) + nFibonacci(n-1)};
 }
 
 /*
@@ -29,8 +38,37 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-function Queue() {
+class Queue {
+  constructor() {
+    this.queue = {};
+    this.add = 0
+    this.tamaño = 0;
+    this.delete = 0;
+  };
 
+  enqueue(elemento) {
+    this.queue[this.add] = elemento;
+    this.tamaño++;
+    this.add++
+    return this.queue;
+  };
+
+  dequeue() {
+    if (this.tamaño>0) {
+      var elemento = this.queue[this.delete];
+      delete this.queue[this.delete];
+      this.delete++;
+      this.tamaño--;
+      return elemento;
+    }
+    else {
+      return undefined
+    }
+  };
+
+  size() {
+    return this.tamaño;
+  }
 }
 
 // No modifiquen nada debajo de esta linea
