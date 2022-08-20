@@ -38,38 +38,52 @@ Implementar la clase Queue, sabiendo que es una estructura de tipo FIFO, donde e
 Pueden utilizar class o función constructora.
 */
 
-class Queue {
-  constructor() {
-    this.queue = {};
-    this.add = 0
-    this.tamaño = 0;
-    this.delete = 0;
-  };
-
-  enqueue(elemento) {
-    this.queue[this.add] = elemento;
-    this.tamaño++;
-    this.add++
-    return this.queue;
-  };
-
-  dequeue() {
-    if (this.tamaño>0) {
-      var elemento = this.queue[this.delete];
-      delete this.queue[this.delete];
-      this.delete++;
-      this.tamaño--;
-      return elemento;
-    }
-    else {
-      return undefined
-    }
-  };
-
-  size() {
-    return this.tamaño;
-  }
+function Queue(){
+  this.queue = [];
 }
+
+Queue.prototype.enqueue = function(value){
+  this.queue.push(value);
+}
+Queue.prototype.dequeue = function(){
+  return this.queue.shift();
+}
+Queue.prototype.size = function(){
+  return this.queue.length;
+}
+
+// class Queue {
+//   constructor() {
+//     this.queue = {};
+//     this.add = 0
+//     this.tamaño = 0;
+//     this.delete = 0;
+//   };
+
+//   enqueue(elemento) {
+//     this.queue[this.add] = elemento;
+//     this.tamaño++;
+//     this.add++
+//     return this.queue;
+//   };
+
+//   dequeue() {
+//     if (this.tamaño>0) {
+//       var elemento = this.queue[this.delete];
+//       delete this.queue[this.delete];
+//       this.delete++;
+//       this.tamaño--;
+//       return elemento;
+//     }
+//     else {
+//       return undefined
+//     }
+//   };
+
+//   size() {
+//     return this.tamaño;
+//   }
+// }
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------
