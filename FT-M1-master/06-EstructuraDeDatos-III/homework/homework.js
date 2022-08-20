@@ -15,17 +15,21 @@ function BinarySearchTree(value) {
   this.value = value;
   this.right = null;
   this.left = null;
+  this._lenght = 1;
 }
 
 BinarySearchTree.prototype.size=function(){
-  let contador = 1;
-  if (this.right){
-    contador+= this.right.size();
-  }
-  if (this.left){
-    contador += this.left.size();
-  }
-  return contador;
+  // let contador = 1;
+  // this.size
+  // if (this.right){
+  //   contador+= this.right.size();
+  // }
+  // if (this.left){
+  //   contador += this.left.size();
+  // }
+  // return contador;
+
+  return this._lenght;
 }
 
 BinarySearchTree.prototype.insert=function(value){
@@ -44,6 +48,7 @@ BinarySearchTree.prototype.insert=function(value){
       this.left.insert(value);
     }
   }
+  this._lenght++;
 }
 
 BinarySearchTree.prototype.contains=function(value){
@@ -95,7 +100,6 @@ BinarySearchTree.prototype.depthFirstForEach=function(f,dfs){
 }
 
 BinarySearchTree.prototype.breadthFirstForEach=function(cb,arr=[]){
-  
   cb(this.value);
   if(this.left){
     arr.push(this.left);
